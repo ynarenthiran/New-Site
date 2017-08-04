@@ -11,31 +11,13 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $("#hide").click(function() {
-            $("#panel1").hide();
-            $("#panel2").hide();
-        });
-        $("#show").click(function() {
-            $("#panel1").slideDown("slow");
-            $("#panel2").slideDown("slow");
-        });
-    });
-    </script>
-    <style>
-    #panel1 {
-        display: none;
-    }
-
-    #panel2 {
-        display: none;
-    }
-    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 </head>
 
 <body>
-    <ul class="col-xs-3 nav nav-pills nav-stacked">
+<span class="col-xs-3">
+    <label id="flip" class="col-xs-12 btn-lg btn-danger"style="font-family: Comic Sans MS;">Edit Profile</label><br><br><br>
+<ul id="panel0" class="nav nav-pills nav-stacked" style="font-family: Comic Sans MS; display: none">
         <li class="active"><a data-toggle="pill" href="#personal">Personal Details</a></li>
         <li><a data-toggle="pill" href="#academic">Academic Details</a></li>
         <li><a data-toggle="pill" href="#work">Work Details</a></li>
@@ -43,10 +25,11 @@
         <li><a data-toggle="pill" href="#online">Online Profile</a></li>
         <li><a data-toggle="pill" href="#project">Project</a></li>
     </ul>
+</span>
     <div class="col-xs-8 tab-content">
         <div id="personal" class="tab-pane fade in active">
             <h3>Personal Details</h3>
-            <form action="">
+            <form>
                 <label>Name</label>
                 <div class="form-group row">
                     <div class="col-xs-5">
@@ -123,8 +106,8 @@
         <div id="academic" class="tab-pane fade">
             <h3>Academic Details</h3>
             <form action="">
-                <label class="col-xs-1">10th</label>
-                <div class="form-group row">
+                <label id="show1" class="col-xs-1 btn btn-info">10th</label>
+                <div id="panel3" class="form-group row">
                     <div class="col-xs-1">
                         <input class="form-control" id="percent" type="text" placeholder="%" required="This field is Required.">
                     </div>
@@ -135,8 +118,10 @@
                         <input class="form-control" id="institute" type="text" placeholder="Institution" required="This field is Required.">
                     </div>
                 </div>
-                <label class="col-xs-1">12th</label>
-                <div class="form-group row">
+                <br>
+                <br>
+                <label id="show2" class="col-xs-1 btn btn-info">12th</label>
+                <div id="panel4" class="form-group row">
                     <div class="col-xs-1">
                         <input class="form-control" id="percent" type="text" placeholder="%" required="This field is Required.">
                     </div>
@@ -147,8 +132,10 @@
                         <input class="form-control" id="institute" type="text" placeholder="Institution" required="This field is Required.">
                     </div>
                 </div>
-                <label class="col-xs-1">UG</label>
-                <div class="form-group row">
+                <br>
+                <br>
+                <label id="show3" class="col-xs-1 btn btn-info">UG</label>
+                <div id="panel5" class="form-group row">
                     <div class="col-xs-1">
                         <input class="form-control" id="percent" type="text" placeholder="%" required="This field is Required.">
                     </div>
@@ -159,8 +146,10 @@
                         <input class="form-control" id="institute" type="text" placeholder="Institution" required="This field is Required.">
                     </div>
                 </div>
-                <label class="col-xs-1">PG</label>
-                <div class="form-group row">
+                <br>
+                <br>
+                <label id="show4" class="col-xs-1 btn btn-info">PG</label>
+                <div id="panel6" class="form-group row">
                     <div class="col-xs-1">
                         <input class="form-control" id="percent" type="text" placeholder="%">
                     </div>
@@ -171,6 +160,7 @@
                         <input class="form-control" id="institute" type="text" placeholder="Institution">
                     </div>
                 </div>
+                <br>
                 <div class="form-group">
                     <div class="col-xs-8"></div>
                     <button class="col-xs-2 btn btn-success">Next</button>
@@ -185,24 +175,28 @@
                         <input id="hide" type="radio" name="optradio">Fresher</label>
                     <label class="col-xs-1 radio-inline">
                         <input id="show" type="radio" name="optradio">Experience</label>
-                    <div class="col-xs-2" id="panel1">
-                        <input class="form-control" id="month" type="number" placeholder="Months" required="This field is Required.">
-                    </div>
-                    <div class="col-xs-2" id="panel2">
-                        <input class="form-control" id="year" type="number" placeholder="Years" required="This field is Required.">
+                    <div id="panel1">
+                        <div class="col-xs-2">
+                            <input class="form-control" id="month" type="number" placeholder="Months" required="This field is Required.">
+                        </div>
+                        <div class="col-xs-2">
+                            <input class="form-control" id="year" type="number" placeholder="Years" required="This field is Required.">
+                        </div>
                     </div>
                 </div>
-                <label>Industry</label>
-                <div class="form-group row">
-                    <label class="col-xs-8">
-                        <input class="form-control" id="name" type="text" placeholder="Name">
-                    </label>
-                    <label class="col-xs-8">
-                        <input class="form-control" id="role" type="text" placeholder="Role">
-                    </label>
-                    <label class="col-xs-8">
-                        <input class="form-control" id="salary" type="number" placeholder="Salary">
-                    </label>
+                <div id="panel2">
+                    <label>Industry</label>
+                    <div class="form-group row">
+                        <label class="col-xs-8">
+                            <input class="form-control" id="name" type="text" placeholder="Name">
+                        </label>
+                        <label class="col-xs-8">
+                            <input class="form-control" id="role" type="text" placeholder="Role">
+                        </label>
+                        <label class="col-xs-8">
+                            <input class="form-control" id="salary" type="number" placeholder="Salary">
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-6"></div>
@@ -252,26 +246,50 @@
         <div id="online" class="tab-pane fade">
             <h3>Online Profile</h3>
             <form action="">
-                <label class="col-xs-2">Profile</label>
-                <div class="form-group row">
-                    <div class="col-xs-5">
-                        <input class="form-control" id="profile" type="text" placeholder="Profile" required="This field is Required.">
+                <div>
+                    <label class="col-xs-2">Profile</label>
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <input class="form-control" id="profile" type="text" placeholder="Profile" required="This field is Required.">
+                        </div>
+                    </div>
+                    <label class="col-xs-2">URL</label>
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <input class="form-control" id="url" type="text" placeholder="URL" required="This field is Required.">
+                        </div>
+                    </div>
+                    <label class="col-xs-2">Description</label>
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <textarea class="form-control" id="desc" type="text" placeholder="Description......"></textarea>
+                        </div>
                     </div>
                 </div>
-                <label class="col-xs-2">URL</label>
-                <div class="form-group row">
-                    <div class="col-xs-5">
-                        <input class="form-control" id="url" type="text" placeholder="URL" required="This field is Required.">
+                <br>
+                <div id="panel7">
+                    <label class="col-xs-2">Profile</label>
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <input class="form-control" id="profile" type="text" placeholder="Profile" required="This field is Required.">
+                        </div>
                     </div>
-                </div>
-                <label class="col-xs-2">Description</label>
-                <div class="form-group row">
-                    <div class="col-xs-5">
-                        <textarea class="form-control" id="desc" type="text" placeholder="Description......"></textarea>
+                    <label class="col-xs-2">URL</label>
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <input class="form-control" id="url" type="text" placeholder="URL" required="This field is Required.">
+                        </div>
+                    </div>
+                    <label class="col-xs-2">Description</label>
+                    <div class="form-group row">
+                        <div class="col-xs-5">
+                            <textarea class="form-control" id="desc" type="text" placeholder="Description......"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-xs-5"></div>
+                    <label id="show5" class="col-xs-2 btn btn-info">Add More</label>
+                    <div class="col-xs-3"></div>
                     <button class="col-xs-2 btn btn-success">Next</button>
                 </div>
             </form>
@@ -349,6 +367,61 @@
             })
     });
     </script>
+    <script>
+    $(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel0").toggle();
+        });
+    });
+    $(document).ready(function() {
+        $("#hide").click(function() {
+            $("#panel1").hide();
+            $("#panel2").hide();
+        });
+        $("#show").click(function() {
+            $("#panel1").slideDown("slow");
+            $("#panel2").slideDown("slow");
+        });
+        $("#show1").click(function() {
+            $("#panel3").slideDown("slow");
+        });
+        $("#show2").click(function() {
+            $("#panel4").slideDown("slow");
+        });
+        $("#show3").click(function() {
+            $("#panel5").slideDown("slow");
+        });
+        $("#show4").click(function() {
+            $("#panel6").slideDown("slow");
+        });
+        $("#show5").click(function() {
+            $("#panel7").slideDown("slow");
+        });
+    });
+    </script>
+    <style>
+    #panel1 {
+        display: none;
+    }
+    #panel2 {
+        display: none;
+    }
+    #panel3 {
+        display: none;
+    }
+    #panel4 {
+        display: none;
+    }
+    #panel5 {
+        display: none;
+    }
+    #panel6 {
+        display: none;
+    }
+    #panel7 {
+        display: none;
+    }
+    </style>
 </body>
 
 </html>
